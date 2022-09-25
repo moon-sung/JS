@@ -19,6 +19,7 @@ img{
   height: 300px;
   color: white;
   border-radius: 5px;
-  text-align: center;
-  padding: 150px 0;
+  justify-content: center;
+  padding: 5px;
+  display: flex;
 }
