@@ -22,7 +22,7 @@ $.get("store.json").done(function (data) {
   //담기버튼 누르면
   //findIndex 메서드는 해당 조건에 만족하는 첫 번째 요소의 인덱스를 반환하며 만족하지 않으면 -1을 반환합니다.
   $(".add").click(function (e) {
-    console.log("target:", e);
+    //console.log("target:", e);
     let presentId = e.target.dataset.id; //버튼클릭한거 id
     //클릭한거 id랑 장바구니에 있는거 id랑 비교
     let check = cart.findIndex(function (e) {
@@ -41,12 +41,13 @@ $.get("store.json").done(function (data) {
     } else {
       cart[check].count++; //이미 있으면 count를 증가
     }
-    console.log(cart);
+    //console.log(cart);
+    let totalprice=0; // 최종가격
 
     $(".store").html("");
     cart.forEach(function (a, i) {
       $(".store").append(`
-      <div class="card text-dark store-card" data-id="${data.id}" style="width: 180px; height="200px" draggable="true">
+      <div class="card text-dark store-card" data-id="${a.id}" style="width: 180px; height="200px" draggable="true">
       <img src="img/${a.photo}" class="card-img-top p-3" alt="...">
       <div class="card-body">
       <h6 class="card-title">${a.title}</h6>
@@ -55,7 +56,11 @@ $.get("store.json").done(function (data) {
       <p class="card-text">개당 가격 : ${a.price}</p>
       </div>
     </div>`);
+      totalprice += a.price * a.count;
+      
     });
+    $('.totalbox p').html('');
+    $('.totalbox p').html(`합계 : ${totalprice}`);
   });
 
   //검색기능
@@ -81,10 +86,10 @@ $.get("store.json").done(function (data) {
         </div>
       </div>`);
     });
-
+    
     $(".middle h5").each(function (i, changetext) {
       let title = changetext.innerHTML;
-      console.log(title);
+      //console.log(title);
       title = title.replace(
         searchname,
         `<span style="background : yellow">${searchname}</span>`
@@ -93,17 +98,18 @@ $.get("store.json").done(function (data) {
       changetext.innerHTML = title;
     });
   });
+  
   //드래그하면 장바구니 담기는 기능
   $(".card").on("dragstart", function (e) {
     e.originalEvent.dataTransfer.setData("id", e.target.dataset.id);
-    console.log("target:", e);
+    //console.log("target:", e);
   });
   $(".store").on("dragover", function (e) {
     e.preventDefault();
   });
   $(".store").on("drop", function (e) {
     let productId = e.originalEvent.dataTransfer.getData("id");
-    console.log(productId);
+    //console.log(productId);
     $('.add').eq(productId).click(); //드랍하면 클릭한거와같은기능실행
   });
 });
