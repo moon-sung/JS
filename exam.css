@@ -22,4 +22,33 @@ img{
   justify-content: center;
   padding: 5px;
   display: flex;
+  flex-direction: c;
+}
+
+.black-bg{
+  margin: auto;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  position : fixed;
+  padding: 30px;
+  background : rgba(0,0,0,0.5);
+}
+.white-bg{
+  background-color: white;
+  display: block;
+  width: 30%;
+  border-radius: 5px;
+  padding: 10px;
+  margin: auto;
+}
+.modal2{
+  margin: auto;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  position : fixed;
+  padding: 30px;
+  display: none;
+  background : rgba(0,0,0,0.5);
 }

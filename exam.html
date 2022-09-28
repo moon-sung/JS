@@ -10,8 +10,31 @@
   </head>
 
   <body>
+    <div class="black-bg">
+      <div class="white-bg">
+        <div style="margin: 10px">
+          <span>성함</span>
+          <input id="name" style="margin-left: 14px;"type="text">
+        </div>
+        <div style="margin: 10px">
+          <span>연락처</span>
+          <input id="phone" type="text">
+        </div>
+        <button class="btn btn-dark modal1-succ" style="margin: 5px">입력완료</button>
+        <button class="btn btn-dark modal1-close" style="margin: 5px">닫기</button>
+      </div>
+    </div>
+    
+    <div class="modal2">
+      <div class="white-bg">
+        <h4>영수증</h4>
+        <canvas class="canvas" id="canvas" width="350" height="350"></canvas> 
+        <button class="modal2-close">x</button>
+      </div>
+    </div>
+
     <div>
-      
+
       <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container-fluid">
@@ -50,15 +73,16 @@
           <span>여기로 드래그</span>
         </div>
       </div>
-
+      
       <div class="m-5 totalbox">
         <h3>최종가격</h3>
         <p>합계</p>
         <a class="btn btn-dark paybtn">구매하기</a>
         
       </div>
-
+      
     </div>
+      
 
     
     <script src="exam.js"></script>
