@@ -33,6 +33,7 @@ img{
   position : fixed;
   padding: 30px;
   background : rgba(0,0,0,0.5);
+  display: none;
 }
 .white-bg{
   background-color: white;

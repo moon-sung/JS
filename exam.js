@@ -86,7 +86,7 @@ $.get("store.json").done(function (data) {
         </div>
       </div>`);
     });
-    
+
     $(".add").click(function (e) {
       //console.log("target:", e);
       let presentId = e.target.dataset.id; //버튼클릭한거 id
@@ -167,7 +167,7 @@ $.get("store.json").done(function (data) {
   let phone = '';
 
   $('#name').on('input',function(e){
-    console.log(e.target.value);
+    //console.log(e.target.value);
     ordername = e.target.value;
   })
   $('#phone').on('input',function(e){
@@ -191,6 +191,7 @@ $.get("store.json").done(function (data) {
     c.font = '20px dotum';
     c.fillText('구매자 : '+ ordername, 30, 20);
     c.fillText('연락처 : '+ phone, 30, 50); 
+    c.fillText('결제가격 : '+ $('.totalbox p').html(), 30, 80);
 
   })
 
